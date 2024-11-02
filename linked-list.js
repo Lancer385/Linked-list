@@ -151,6 +151,30 @@ export class LinkedList{
         };
         return "out of bound";
     };
+    removeAt(index){
+        if (this.head === null){
+            return null;
+        };
+        let temp = this.head;
+        if (index === 0){
+            let poppedNode = this.head;
+            this.head = temp.next;
+            this.length--;
+            return poppedNode;
+        };
+        let counter = 1;
+        while (temp.next !== null){
+            if (index === counter){
+                let poppedNode = temp.next;
+                temp.next = temp.next.next;
+                this.length--;
+                return poppedNode;
+            };
+            temp = temp.next;
+            counter++;
+        }
+        return "out of bounds";
+    };
 }; 
 
 class Node{
