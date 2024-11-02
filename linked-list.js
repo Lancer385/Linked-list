@@ -17,8 +17,6 @@ export class LinkedList{
             temp.next = new Node(value);
         };
         this.length++;
-
-        console.log(this);
     }
     prepend(value){
         let current = new Node(value);
@@ -30,7 +28,6 @@ export class LinkedList{
             this.head = current;
         };
         this.length++;
-        console.log(this);
     };
     size(){
         return this.length;
@@ -68,7 +65,6 @@ export class LinkedList{
             let poppedNode = this.head;
             this.head = null;
             this.length--;
-            console.log(this)
             return poppedNode;
         };
         let temp = this.head;
@@ -78,7 +74,6 @@ export class LinkedList{
         let poppedNode = temp.next;
         temp.next = null;
         this.length--;
-        console.log(this);
         return poppedNode;
     };
     contains(value){
@@ -126,9 +121,36 @@ export class LinkedList{
             stringValues += ` (${temp.value}) ->`
         };
         stringValues += ` null`
-        console.log(stringValues);
         return stringValues;
     }
+    insertAt(value, index){
+        let current = new Node(value);
+        let temp = this.head;
+        if (index === 0){
+            current.next = temp;
+            this.head = current;
+            this.length++;
+            return this;
+        };
+        let counter = 1;
+        while (temp.next !== null){
+            if (index === counter){
+             current.next = temp.next;
+             temp.next = current;
+             this.length++;
+             return this;
+            }
+            counter++;
+            temp = temp.next;
+        };
+        if (index === this.length){
+            temp.next = current;
+            this.length++;
+            console.log("hello")
+            return this;
+        };
+        return "out of bound";
+    };
 }; 
 
 class Node{
