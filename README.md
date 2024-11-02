@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked List
 Implemented with javaScript. This Linked List implementation includes methods to manage a collection of nodes.
 
 # Features
