@@ -115,6 +115,20 @@ export class LinkedList{
         }
         return null;
     }
+    toString(){
+        if (this.head === null){
+            return 'null';
+        };
+        let temp = this.head;
+        let stringValues = `(${temp.value}) ->`;
+        while (temp.next !== null){
+            temp = temp.next;
+            stringValues += ` (${temp.value}) ->`
+        };
+        stringValues += ` null`
+        console.log(stringValues);
+        return stringValues;
+    }
 }; 
 
 class Node{
